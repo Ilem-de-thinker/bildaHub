@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #010e52;
+  --color-navy-dark: #000830;
+  --color-navy-surface: #04146a;
+  --color-navy-card: rgba(1, 14, 82, 0.65);
+  --color-electric: #0025ff;
+  --color-electric-light: #3858ff;
+  --color-electric-dark: #001cbf;
+  --color-sun: #ffcc00;
+  --color-sun-hover: #e6b800;
+  --color-sun-glow: rgba(255, 204, 0, 0.35);
+  
+  --font-display: "Fagor", "Space Grotesk", sans-serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  @font-face {
+    font-family: 'Fagor';
+    font-style: normal;
+    font-weight: 400 900;
+    font-display: swap;
+    src: local('Fagor'), local('Fagor Bold'), local('Fagor-Bold');
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Custom Glassmorphism Card Utility */
+.glass-card {
+  background: rgba(1, 14, 82, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(1, 14, 82, 0.08);
+}
+
+.glow-yellow-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glow-yellow-hover:hover {
+  box-shadow: 0 0 25px rgba(255, 204, 0, 0.25), inset 0 0 0 1px rgba(255, 204, 0, 0.5);
+  transform: translateY(-4px);
+}
+
+/* Custom Marquee animation fallback */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes kenburns {
+  0% { transform: scale(1.03) translate(0%, 0%); }
+  50% { transform: scale(1.12) translate(-1.2%, -1%); }
+  100% { transform: scale(1.06) translate(1%, -0.5%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Giant Outline Wordmark in Footer */
+.outline-text {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.25);
+  color: transparent;
+  transition: all 0.6s ease;
+}
+
+.outline-text:hover, .outline-text.filled {
+  color: #ffcc00;
+  -webkit-text-stroke: 1.5px #ffcc00;
+}
+
+/* Remove scrollbar on mobile screens while preserving touch and momentum scrolling */
+@media (max-width: 1024px) {
+  html, body {
+    scrollbar-width: none !important; /* Firefox */
+    -ms-overflow-style: none !important; /* IE and Edge */
+  }
+
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  *::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+  }
+}
+
+/* Reusable utility to hide scrollbars on any scrollable element */
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}

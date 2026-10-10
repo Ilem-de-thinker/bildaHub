@@ -1,0 +1,6 @@
+{
+  "name": "BILDAHUB — Learn. Build. Innovate.",
+  "description": "Africa's tech community and learning hub empowering young Nigerians to build and ship real solutions to real-world problems.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
