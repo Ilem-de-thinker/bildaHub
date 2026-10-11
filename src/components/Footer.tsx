@@ -52,7 +52,7 @@ export const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-16 border-b border-white/10">
           {/* Column 1: Brand + Vision + Newsletter */}
           <div className="lg:col-span-5 flex flex-col gap-5">
-            <Logo size="lg" variant="light" showTagline />
+            <Logo size="lg" showTagline />
 
             <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
               To build a generation of innovative Africans who can create technology-driven solutions to real-world problems and shape a better future for Nigeria and beyond.

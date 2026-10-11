@@ -12,8 +12,8 @@
   --color-sun-hover: #e6b800;
   --color-sun-glow: rgba(255, 204, 0, 0.35);
   
-  --font-display: "Fagor", "Space Grotesk", sans-serif;
-  --font-sans: "Inter", sans-serif;
+  --font-display: "Fagor", "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
 @layer base {
@@ -22,7 +22,48 @@
     font-style: normal;
     font-weight: 400 900;
     font-display: swap;
-    src: local('Fagor'), local('Fagor Bold'), local('Fagor-Bold');
+    src: local('Fagor'), local('Fagor Bold'), local('Fagor-Bold'),
+      url('/fonts/Fagor-Variable.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Fagor';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Fagor Regular'), url('/fonts/Fagor-Regular.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Fagor';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: local('Fagor Medium'), url('/fonts/Fagor-Medium.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Fagor';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: local('Fagor SemiBold'), url('/fonts/Fagor-SemiBold.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Fagor';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Fagor Bold'), url('/fonts/Fagor-Bold.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Fagor';
+    font-style: normal;
+    font-weight: 800 900;
+    font-display: swap;
+    src: local('Fagor Black'), url('/fonts/Fagor-Black.woff2') format('woff2');
   }
 
   html {

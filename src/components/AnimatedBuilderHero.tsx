@@ -29,17 +29,9 @@ export const AnimatedBuilderHero: React.FC<AnimatedBuilderHeroProps> = ({ classN
         }}
       />
 
-      {/* 4. Real-time Fluid Simulation Overlay: User Mouse Drag & Swirl */}
+      {/* 5. Real-time Fluid Simulation Overlay: User Mouse Drag & Swirl */}
       <div className="absolute inset-0 opacity-75 mix-blend-screen">
         <FluidCanvas mode="hero" intensity={1.15} interactive={true} />
-      </div>
-
-      {/* 5. Live Hub Telemetry Ticker Badge */}
-      <div className="absolute top-24 right-6 z-20 hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#000830]/80 border border-white/15 backdrop-blur-md text-[11px] font-mono text-slate-300">
-        <span className="w-2 h-2 rounded-full bg-[#25D366] animate-ping" />
-        <span className="text-[#ffcc00] font-bold">LIVE HUB</span>
-        <span className="text-slate-400">·</span>
-        <span>Yaba Innovation Lab · Night Build Active</span>
       </div>
     </div>
   );

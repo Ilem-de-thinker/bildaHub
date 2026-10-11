@@ -151,7 +151,7 @@ export const Home: React.FC = () => {
 
                 {/* Card Header with Logo */}
                 <div className="flex items-center justify-between pb-6 border-b border-white/10">
-                  <Logo size="md" variant="light" />
+                  <Logo size="md" />
                   <span className="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 bg-[#ffcc00]/20 text-[#ffcc00] border border-[#ffcc00]/40 rounded-full">
                     Hub Blueprint
                   </span>

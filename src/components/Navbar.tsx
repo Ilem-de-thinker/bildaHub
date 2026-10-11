@@ -82,7 +82,7 @@ export const Navbar: React.FC = () => {
           <nav aria-label="Main Navigation" className="flex items-center justify-between gap-4">
             {/* Zone 1: Brand Wordmark */}
             <div className="shrink-0">
-              <Logo size="md" variant="light" />
+              <Logo size="md" />
             </div>
 
             {/* Zone 2: Navigation Links (Desktop) */}
