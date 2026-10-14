@@ -4,72 +4,26 @@ import { MapPin, Users, Building, ArrowUpRight } from 'lucide-react';
 export interface Chapter {
   id: string;
   name: string;
+  label: string; // short map label
   region: string;
   members: string; // PLACEHOLDER
   lead: string; // PLACEHOLDER
   hubLocation: string; // PLACEHOLDER
+  mapQuery: string; // Google Maps embed query
   x: number; // percentage coordinate on SVG
   y: number;
 }
 
 export const chaptersList: Chapter[] = [
   {
-    id: 'lagos',
-    name: 'Lagos Hub (HQ)',
-    region: 'South West',
-    members: '2,400+ Builders',
-    lead: 'Tunde & Blessing',
-    hubLocation: 'Yaba Tech Corridor & Gbagada Hub',
-    x: 20,
-    y: 78
-  },
-  {
-    id: 'ibadan',
-    name: 'Ibadan Chapter',
-    region: 'South West',
-    members: '680+ Builders',
-    lead: 'Zainab Aliyu',
-    hubLocation: 'UI / Bodija Innovation Pod',
-    x: 24,
-    y: 70
-  },
-  {
-    id: 'abuja',
-    name: 'Abuja Innovation Hub',
-    region: 'North Central',
-    members: '1,100+ Builders',
-    lead: 'Amina Bello',
-    hubLocation: 'Wuse II & Baze University Tech Centre',
-    x: 48,
-    y: 52
-  },
-  {
-    id: 'kano',
-    name: 'Kano Chapter',
-    region: 'North West',
-    members: '540+ Builders',
-    lead: 'Ibrahim Danjuma',
-    hubLocation: 'Bayero Tech Hive',
-    x: 58,
-    y: 22
-  },
-  {
-    id: 'ph',
-    name: 'Port Harcourt Hub',
-    region: 'South South',
-    members: '720+ Builders',
-    lead: 'Chidiebere Umeh',
-    hubLocation: 'Peter Odili Tech Space',
-    x: 47,
-    y: 86
-  },
-  {
     id: 'calabar',
     name: 'Calabar Chapter',
+    label: 'Calabar',
     region: 'South South',
     members: '380+ Builders',
     lead: 'Blessing Udoh',
     hubLocation: 'Marina Tech Park',
+    mapQuery: 'Calabar, Cross River, Nigeria',
     x: 62,
     y: 84
   }
@@ -197,7 +151,7 @@ export const NigeriaMap: React.FC = () => {
                     fontWeight={isSelected ? "bold" : "600"}
                     className="pointer-events-none select-none transition-all duration-200"
                   >
-                    {chap.name.split(' ')[0]}
+                    {chap.label}
                   </text>
                 </g>
               );
@@ -208,7 +162,7 @@ export const NigeriaMap: React.FC = () => {
         {/* Quick legend footer */}
         <div className="mt-4 pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-300">
           <span>Click any glowing node on the map to view chapter details</span>
-          <span className="text-[#ffcc00] font-semibold">6 Active Campuses & Hubs</span>
+          <span className="text-[#ffcc00] font-semibold">1 Active Campus & Hub</span>
         </div>
       </div>
 
@@ -257,6 +211,18 @@ export const NigeriaMap: React.FC = () => {
             </div>
           </div>
 
+          {/* Google Map of the chapter location */}
+          <div className="mt-6 rounded-xl overflow-hidden border border-white/10">
+            <iframe
+              title={`Google Map showing ${selectedChapter.hubLocation}`}
+              src={`https://www.google.com/maps?q=${encodeURIComponent(selectedChapter.mapQuery)}&output=embed`}
+              className="w-full h-44 sm:h-52 block"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              allowFullScreen
+            />
+          </div>
+
           <div className="mt-8 pt-6 border-t border-white/10 flex items-center justify-between">
             <span className="text-xs text-slate-300">Weekly meetups every Saturday</span>
             <a
@@ -280,7 +246,7 @@ export const NigeriaMap: React.FC = () => {
                   : 'bg-white/5 text-slate-300 hover:bg-white/10 border border-white/10'
               }`}
             >
-              {chap.name.split(' ')[0]}
+              {chap.label}
             </button>
           ))}
         </div>

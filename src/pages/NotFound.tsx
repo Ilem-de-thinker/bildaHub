@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Home as HomeIcon } from 'lucide-react';
-import { FluidCanvas } from '../components/FluidCanvas';
 import { Button } from '../components/Button';
 
 export const NotFound: React.FC = () => {
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-[#010e52] px-4 text-center overflow-hidden">
-      <FluidCanvas className="z-0 opacity-80" intensity={0.9} />
+      <div
+        className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_20%_25%,rgba(0,37,255,0.28)_0%,transparent_55%),radial-gradient(circle_at_80%_75%,rgba(0,37,255,0.16)_0%,transparent_50%)]"
+        aria-hidden="true"
+      />
 
       <div className="relative z-10 max-w-lg mx-auto flex flex-col items-center">
         <span className="font-display text-8xl sm:text-9xl font-black text-[#ffcc00] tracking-tight leading-none drop-shadow-[0_0_30px_rgba(255,204,0,0.4)]">

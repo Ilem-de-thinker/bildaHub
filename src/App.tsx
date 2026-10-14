@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -7,6 +7,7 @@ import { PageTransition } from './components/PageTransition';
 import { SmoothScroll } from './components/SmoothScroll';
 import { CookieBanner } from './components/CookieBanner';
 import { InteractivePageBackground } from './components/InteractivePageBackground';
+import { Preloader } from './components/Preloader';
 
 // Pages
 import { Home } from './pages/Home';
@@ -38,6 +39,13 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 };
 
 export default function App() {
+  // Rendering is paused until the preloader finishes counting 1-100 and splits open.
+  const [ready, setReady] = useState(false);
+
+  if (!ready) {
+    return <Preloader onReady={() => setReady(true)} />;
+  }
+
   return (
     <BrowserRouter>
       <SmoothScroll>

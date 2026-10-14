@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronRight, Clock, Award, CheckCircle, HelpCircle, Calendar, ArrowRight } from 'lucide-react';
-import { FluidCanvas } from '../components/FluidCanvas';
 import { SectionHeading } from '../components/SectionHeading';
 import { Button } from '../components/Button';
 import { programsData } from '../data/programs';
@@ -36,7 +35,10 @@ export const Programs: React.FC = () => {
     <div className="w-full">
       {/* Hero */}
       <section className="relative min-h-[45vh] flex items-center justify-center bg-[#010e52] pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden text-center">
-        <FluidCanvas className="z-0 opacity-60" intensity={0.7} />
+        <div
+          className="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(circle_at_20%_25%,rgba(0,37,255,0.28)_0%,transparent_55%),radial-gradient(circle_at_80%_75%,rgba(0,37,255,0.16)_0%,transparent_50%)]"
+          aria-hidden="true"
+        />
 
         <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
           <span className="px-3.5 py-1.5 rounded-full bg-white/10 text-[#ffcc00] text-xs font-bold uppercase tracking-widest border border-white/20 mb-6">
